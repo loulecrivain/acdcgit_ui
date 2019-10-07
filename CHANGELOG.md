@@ -9,5 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.1] - 2019-10-07
 
 ### Added
+- docs: .gitignore to ignore unnecessary files
 - docs: CHANGELOG file to follow every changes of this project
 - docs: README file to introduce and explain this project
