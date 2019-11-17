@@ -13,6 +13,17 @@ public class RepositoriesFinderSystemCommandImplementation implements Repositori
     @Override
     public List<String> findRepositoriesInDirectory(String directoryPath) throws Exception {
 
+        if (directoryPath == null || directoryPath.isEmpty()) {
+            throw new IllegalArgumentException("The directory path must be defined.");
+        }
+
+        Path folderPath = Paths.get(directoryPath);
+
+        if (!Files.isDirectory(folderPath)) {
+            throw new IllegalArgumentException("Folder path should be a directory.");
+        }
+
+
         Stream.Builder<String> projectBuilder = Stream.builder();
 
         Files.newDirectoryStream(Path.of(directoryPath), Files::isDirectory)
@@ -35,6 +46,11 @@ public class RepositoriesFinderSystemCommandImplementation implements Repositori
 
     @Override
     public List<String> findRepositoriesInFile(String filePath) throws Exception {
+
+        if (filePath == null || filePath.isEmpty()) {
+            throw new IllegalArgumentException("The path must be defined.");
+        }
+
         Path file = Paths.get(filePath);
 
         if (Files.isDirectory(file)) {
@@ -44,7 +60,8 @@ public class RepositoriesFinderSystemCommandImplementation implements Repositori
         List<String> lines = Files.readAllLines(file);
         List<String> projectDirectories = lines.stream()
                 .map(Paths::get)
-                .filter(directory -> directory.getFileName().toString().equals(".git"))
+                .filter(directory -> Files.exists(Path.of(directory.toAbsolutePath().toString() + "/.git")))
+                .map(Path::getParent)
                 .map(Path::toString)
                 .collect(Collectors.toList());
 

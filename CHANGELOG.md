@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.1] - 2019-10-07
 
 ### Added
+- test: add test to cover RepositoryFinder use cases
 - ci: add ci that run test and deploy documentation
 - feat: minimal interfaces and implementations
 - docs: .gitignore to ignore unnecessary files
