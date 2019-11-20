@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'net.imtaltlantique'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+    testImplementation 'org.eclipse.jgit:org.eclipse.jgit:5.5.1.201910021850-r'
+    testCompile "org.mockito:mockito-core:2.+"
+}
