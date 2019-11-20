@@ -21,8 +21,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
                 .get();
 
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git add " + files);
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " add " + files).split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader errorOutput =
@@ -38,8 +38,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
     @Override
     public void commit(String pathToRepository, String message) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git commit -m \"" + message + "\"");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " commit -m \"" + message + "\"").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -51,8 +51,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
     @Override
     public boolean push(String pathToRepository) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git push");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " push").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -72,8 +72,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
         }
 
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git push " + url);
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " push " + url).split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -87,8 +87,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
     @Override
     public boolean pull(String pathToRepository) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git pull");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " pull").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -108,8 +108,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
         }
 
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git pull " + url);
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " pull " + url).split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -125,8 +125,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
         Map<String, String> filesWithStatus = new HashMap<>();
 
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git status --porcelain");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " status --porcelain").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -156,8 +156,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
 
 
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git status --porcelain -b");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " status --porcelain -b").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardOutput =
@@ -187,8 +187,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
     @Override
     public String diffs(String pathToRepository) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git diff");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " diff").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -201,8 +201,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
 
     public String getRemotePullUrl(String pathToRepository) throws IOException {
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git remote get-url origin");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " remote get-url origin").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
@@ -215,8 +215,8 @@ public class RepositorySytemCommandImplementation implements RepositoryInterface
 
     public String getRemotePushUrl(String pathToRepository) throws IOException {
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("git remote get-url origin --push");
-        builder.directory(Paths.get(pathToRepository).toFile());
+        builder.command(("git -C " + pathToRepository + " remote get-url origin --push").split("\\s+"));
+
         Process process = builder.start();
 
         BufferedReader standardInput =
