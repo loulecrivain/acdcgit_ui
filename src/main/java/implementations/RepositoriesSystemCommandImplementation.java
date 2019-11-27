@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class RepositoriesSystemCommandImplementation implements RepositoriesInterface {
     @Override
     public Map<String, Boolean> push(String... pathToRepositories) throws Exception {
-        RepositorySytemCommandImplementation repository = new RepositorySytemCommandImplementation();
+        RepositorySystemCommandImplementation repository = new RepositorySystemCommandImplementation();
 
         return Arrays.asList(pathToRepositories).stream()
                 .map(repositoryPath -> {
@@ -30,7 +30,7 @@ public class RepositoriesSystemCommandImplementation implements RepositoriesInte
 
     @Override
     public Map<String, Boolean> pull(String... pathToRepositories) throws Exception {
-        RepositorySytemCommandImplementation repository = new RepositorySytemCommandImplementation();
+        RepositorySystemCommandImplementation repository = new RepositorySystemCommandImplementation();
 
         return Arrays.asList(pathToRepositories).stream()
                 .map(repositoryPath -> {
@@ -49,8 +49,8 @@ public class RepositoriesSystemCommandImplementation implements RepositoriesInte
     }
 
     @Override
-    public Map<String, String> getState(String... pathToRepositories) throws Exception {
-        RepositorySytemCommandImplementation repository = new RepositorySytemCommandImplementation();
+    public Map<String, String> getStates(String... pathToRepositories) throws Exception {
+        RepositorySystemCommandImplementation repository = new RepositorySystemCommandImplementation();
 
         return Arrays.asList(pathToRepositories).stream()
                 .map(repositoryPath -> {

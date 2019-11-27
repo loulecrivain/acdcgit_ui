@@ -15,3 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs: README file to introduce and explain this project
 
 ## [Unreleased]
+
+### Added
+- feat: controller in order to apply treatment on repositories
