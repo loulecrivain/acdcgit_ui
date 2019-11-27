@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class RepositorySytemCommandImplementation implements RepositoryInterface {
+public class RepositorySystemCommandImplementation implements RepositoryInterface {
 
     @Override
     public void add(String pathToRepository, String... pathsToFiles) throws IOException {

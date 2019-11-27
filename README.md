@@ -8,7 +8,7 @@ Actually, users should import that library by downloading it. We must provide an
 
 ## Usage
 
-In order to use that library, users can use the different implementations that can be found in the `implementations` package.
+In order to use that library, users should use the controller provided in the `controllers` package. He can also use the different implementations that can be found in the `implementations` package in order to build their own controller.
 
 All the different usage of the library are provided in the java documentation.
 

@@ -44,5 +44,5 @@ public interface RepositoriesInterface {
      *                           without ".git".
      * @return a map describe the current state of all given repositories.
      */
-    Map<String, String> getState(String... pathToRepositories) throws Exception;
+    Map<String, String> getStates(String... pathToRepositories) throws Exception;
 }

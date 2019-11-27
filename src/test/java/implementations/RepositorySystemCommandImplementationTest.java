@@ -15,18 +15,18 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RepositorySytemCommandImplementationTest {
+class RepositorySystemCommandImplementationTest {
 
     @TempDir
     File folder;
 
-    private RepositorySytemCommandImplementation repository;
+    private RepositorySystemCommandImplementation repository;
 
     @BeforeEach
     public void setup() throws IOException, GitAPIException {
         this.setupNestedDirectoryStructureWithProjectsInADirectory();
 
-        this.repository = new RepositorySytemCommandImplementation();
+        this.repository = new RepositorySystemCommandImplementation();
     }
 
     /**
