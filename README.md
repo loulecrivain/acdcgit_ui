@@ -1,16 +1,18 @@
-# Git Updater
+# Git Updater GUI
 
-Git Updater is a Java library for dealing with git repository. Listing not up to date repository and allowing to update them.
+Git Updater GUI is a program aiming to make the life of those who
+use a lot of git repositories easier.
+It allows various operations on repositories such as:
+- updating them
+- viewing their state
+- commiting changes
+Furthermore, it can discover repositories by scanning a filesystem
+or reading a cache file.
 
-## Installation
+This client is built on top of the libraries provided by the git-updater project.
 
-Actually, users should import that library by downloading it. We must provide another way to deal with it in the future.
 
-## Usage
+# Building and running the GUI
 
-In order to use that library, users should use the controller provided in the `controllers` package. He can also use the different implementations that can be found in the `implementations` package in order to build their own controller.
-
-All the different usage of the library are provided in the java documentation.
-
-> Users also can build their own implementation by using interfaces provided in the `interfaces` package.
-
+You can build the GUI using Eclipse export tools ('runnable JAR'). Then, you
+can launch it using jexec (see OpenJDK or Java SE documentation).
