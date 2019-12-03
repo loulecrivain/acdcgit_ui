@@ -25,15 +25,18 @@ public class ReposPresentation extends JFrame {
 		this.reposController.addPropertyChangeListener(reposScrollPane);
 		this.add(appMenuBar, BorderLayout.NORTH);
 		this.add(reposScrollPane, BorderLayout.CENTER);
+		// main window. Exit when closing it.
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
 	}
 	
 	public static void main(String[] args) {
 		ReposPACController reposController = new ReposPACController(new RepositoriesController());
-		RepoPACController repoController = new RepoPACController(reposController);
+		
 		ReposPresentation mf = new ReposPresentation(reposController);
 		mf.setVisible(true);
-		/* RepoPresentation rf = new RepoPresentation(repoController);
+		/* RepoPACController repoController = new RepoPACController(reposController);
+		RepoPresentation rf = new RepoPresentation("/tmp",repoController);
 		rf.setVisible(true); */
 	}
 }

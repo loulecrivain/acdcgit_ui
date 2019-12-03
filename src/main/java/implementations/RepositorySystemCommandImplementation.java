@@ -133,7 +133,12 @@ public class RepositorySystemCommandImplementation implements RepositoryInterfac
                 new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader standardError =
                 new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        String error = standardError.lines().collect(Collectors.joining("\n"));
 
+        if (!error.isEmpty()) {
+            throw new IOException(error);
+        }
+        
         filesWithStatus = standardInput.lines()
                 .filter(this::canLineBeAdded)
                 .map(line -> line.split(" "))

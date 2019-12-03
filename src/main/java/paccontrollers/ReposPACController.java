@@ -14,7 +14,7 @@ public class ReposPACController {
 		this.pcs.addPropertyChangeListener(listener);
 	}
 
-	public void setRepositories(String[] newRepositoriesValue) {
+	protected void setRepositories(String[] newRepositoriesValue) {
 		String[] oldRepositoriesValue = this.repositories;
 		this.repositories = newRepositoriesValue;
 		this.pcs.firePropertyChange(PROPERTY_REPOSITORIES, oldRepositoriesValue, newRepositoriesValue);
@@ -28,14 +28,18 @@ public class ReposPACController {
 	public void addRepositoriesFromFile(String filePath) {
 		this.model.addReposFromFile(filePath);
 		// change the internal repositories property
-		// then objects linked to this property should
-		// update accordingly, idk how to do in swing ?
-		
-		// according to my searches: you have to use java.beans
+		// then objects listening to this property should
+		// update accordingly
 		
 		this.setRepositories(this.model.getRepos().toArray(new String[] {}));
 	}
 
+	// used by childs to communicate changes made to some repositories
+	public void notifyRepositoriesChanged() {
+		System.out.println("refreshing");
+		this.setRepositories(repositories); // trigger interface refresh
+	}
+	
 	public void addRepositoriesFromDirectory(String dirPath) {
 		this.model.addReposFromDirectory(dirPath);
 		// then update repoScrollPane
